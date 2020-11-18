@@ -1,0 +1,1 @@
+SECRET_HASH_KEY = 'secret-hash-key'
