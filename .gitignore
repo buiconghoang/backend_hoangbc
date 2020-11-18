@@ -3,3 +3,4 @@ __pycache__
 **/_pycache__
 testDB.py
 filemonitor.db
+testTracking.py

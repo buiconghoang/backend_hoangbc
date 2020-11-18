@@ -1,4 +1,4 @@
-from filemonitor import app
+from filemonitor import app, myobserver
 from flask import render_template, jsonify, request
 from filemonitor.database import session
 from filemonitor.models import FilePathModel, WebhookUrl
@@ -13,9 +13,30 @@ def register_web_hook():
         web_hook_url = args['web_hook_url']
         whu = WebhookUrl(web_hook_url)
         fp = FilePathModel(p)
-        fp.add_webhook_url(whu)
-        session.add_all([whu, fp])
+        fp.add_webhook(whu)
+        myobserver.add_watched_file(fp)
+        session.add_all([fp])
+        session.commit()
         return {'status': 'success'}
     except Exception as err:
         print(err)
         return {'status': 'failed'}
+    finally:
+        print('zz')
+        session.close()
+
+@app.route('/get_file_paths')
+def get_file_paths():
+    try:
+        file_paths = session.query(FilePathModel).all()
+        rv = []
+        for f in file_paths:
+            print(f)
+            rv.append(f.serialize())
+        return jsonify(rv)
+    except Exception as err:
+        print(err)
+        return {'status': 'failed'}
+    finally:
+        print('1')
+        session.close()

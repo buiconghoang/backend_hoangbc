@@ -3,7 +3,7 @@ from sqlalchemy.orm import relationship
 from filemonitor.database import Base
 from filemonitor.config  import configdb
 
-filepath_webhookurl = Table(configdb.table_names['filepath_webhook'], Base.metadata,
+filepath_webhook = Table(configdb.table_names['filepath_webhook'], Base.metadata,
     Column('filepath_id', ForeignKey(f'{configdb.table_names["filepath"]}.id'), primary_key=True),
     Column('webhook_id', ForeignKey(f'{configdb.table_names["webhook"]}.id'), primary_key=True)
 )
@@ -38,10 +38,10 @@ class FilePathModel(Base):
                 continue
             val = getattr(self, c)
             if c == 'webhook':
-                webhook = []
+                webhooks = []
                 for webhook in val:
-                    webhook.append(webhook.serialize())
-                val = webhook
+                    webhooks.append(webhook.serialize())
+                val = webhooks
             obj[c] = val
         return obj
 

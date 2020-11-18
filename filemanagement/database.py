@@ -13,7 +13,7 @@ else:
         db_path = os.path.join(os.getcwd(), configdb.db_name)
 
 SQLALCHEMY_DATABASE_URI ='sqlite:///' + os.path.abspath(db_path)
-engine = create_engine(SQLALCHEMY_DATABASE_URI, echo = True)
+engine = create_engine(SQLALCHEMY_DATABASE_URI,  echo = True)
 Base = declarative_base()
 Session = sessionmaker(bind = engine)
 session = Session()

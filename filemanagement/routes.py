@@ -28,6 +28,7 @@ def get_file_info():
 def update_file_info():
     try:
         data = json.loads(request.data)
+        print('--->update_file_info: ', data)
         data['date_created'] = datetime.fromtimestamp(float(data['date_created']))
         data['date_updated'] = datetime.fromtimestamp(float(data['date_updated']))
 
@@ -37,9 +38,10 @@ def update_file_info():
         
         session.add(fileinfo_model)
         session.commit()
+        print(f'--->update_file_info: id: {fileinfo_model.id}')
         return f'id: {fileinfo_model.id}'
     except Exception as err:
-        print(err)
+        print('err: ', err)
         return {'status': 'failed'}
     finally:
         session.close()

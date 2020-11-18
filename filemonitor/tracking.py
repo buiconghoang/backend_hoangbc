@@ -1,9 +1,11 @@
 import sys
-from watchdog.observers import Observer
-from watchdog.events import FileSystemEventHandler, RegexMatchingEventHandler
-# from filemonitor.models import FilePathModel, WebhookUrl
 import time
 import os
+
+from watchdog.observers import Observer
+from watchdog.events import FileSystemEventHandler, RegexMatchingEventHandler
+from filemonitor.models import FilePathModel, WebhookUrl
+from filemonitor.make_request import send_request
 
 class EventHandler(FileSystemEventHandler):
 
@@ -13,14 +15,12 @@ class EventHandler(FileSystemEventHandler):
 
     def on_any_event(self, event):
         self.my_observer.notify(event)
-        # print("EVENT")
-        # print(event)
-        # print(event.event_type)
-        # print(event.src_path)
-        # print()
 
 class EventType:
-    x = 100
+    created = 'created'
+    modified = 'modified'
+    deleted = 'deleted'
+    moved = 'moved'
 
 class MyObserver():
 
@@ -39,21 +39,48 @@ class MyObserver():
             MyObserver.__instance = self
             self.observer = Observer()
             self.event_handler = EventHandler(self)
-            self.filepath_model = {}
+            self.filepath_models = {}
     
+    def init_watched_file(self, db_session):
+        results = db_session.query(FilePathModel).all()
+        for filepath_model in results:
+            self.add_watched_file(filepath_model)
+
     def add_watched_file(self, filepath_model):
-        self.filepath_model[filepath_model['path']] = filepath_model
-        if os.path.isdir(filepath_model['path']):
-            self.observer.schedule(self.event_handler, filepath_model['path'], recursive=True)
-        if os.path.isfile(filepath_model['path']):
-            p = os.path.dirname(filepath_model['path'])
+        p = os.path.abspath(filepath_model.path)
+        self.filepath_models[p] = filepath_model
+
+        if os.path.isdir(p):
+            self.observer.schedule(self.event_handler, p, recursive=True)
+
+        if os.path.isfile(filepath_model.path):
+            p = os.path.dirname(p)
             self.observer.schedule(self.event_handler, p, recursive=True)
 
 
     def notify(self, filesystem_event):
         print('notify')
+        event_type = filesystem_event.event_type
+        src_path = os.path.abspath(filesystem_event.src_path)
+        dest_path = ''
+        is_send_request = False
+        webhook_urls = []
+        if event_type == EventType.moved:
+            dest_path = os.path.abspath(filesystem_event.dest_path)
         
-        print(filesystem_event)
+        for filepath, filepath_model in self.filepath_models.items():
+            if src_path.startswith(filepath):
+                is_send_request = True
+                webhook_urls = filepath_model.get_wehook_urls()
+                break
+
+        if not is_send_request and src_path in self.filepath_models:
+            is_send_request = True
+            webhook_urls = self.filepath_models[src_path].get_wehook_urls()
+        
+        if is_send_request:
+            for webhook_url in webhook_urls:
+                send_request(webhook_url, src_path, event_type, dest_path)
 
     def start(self):
         self.observer.start()
@@ -62,45 +89,20 @@ class MyObserver():
         self.observer.stop()
 
 
+# if __name__ == '__main__':
 
-if __name__ == '__main__':
-    path = {'path': r'D:\\zttt\\i.txt'}
-    # paths = [r'D:\\zttt\\i.txt']
-    myobserver = MyObserver.getInstance()
-    myobserver.add_watched_file(path)
+#     class CustomFilePathModel(object):
+#         def __init__(self, path):
+#             self.path = path
+#         def get_wehook_urls(self):
+#             return ['http://127.0.0.1:8080/update_file_info']
+    
 
-    myobserver.start()
-    i= 0
-    try:
-        while True:
+#     cfpm = CustomFilePathModel(r'D:\\zttt\\i.txt')
+#     myobserver = MyObserver.getInstance()
+#     myobserver.add_watched_file(cfpm)
 
-            if i%10 == 0:
-                print(i)
-            i += 1
-            if i == 20:
-                print('start watch "D:\\z2"')
-                myobserver.add_watched_file({'path': r"D:\\z2"})
-            if i == 40:
-                myobserver.stop()
-                break
-            time.sleep(1)
-    except Exception as e:
-        print(e)
-        myobserver.stop()
-
-
-# if __name__ == "__main__":
-#     # path = sys.argv[1] if len(sys.argv) > 1 else '.'
-#     # paths = [r"D:\zttt\abc\123.txt", r"D:\zttt\X.txt", r"D:\zttt\i.txt"]
-#     paths = [r'D:\zttt']
-#     # paths = [r'D:\\zttt\\i.txt']
-#     event_handler = EventHandler()
-#     observer = Observer()
-#     observers = []
-#     for path in paths:
-#         observer.schedule(event_handler, path, recursive=False)
-#         observers.append(observer)
-#     observer.start()
+#     myobserver.start()
 #     i= 0
 #     try:
 #         while True:
@@ -109,12 +111,9 @@ if __name__ == '__main__':
 #             i += 1
 #             if i == 20:
 #                 print('start watch "D:\\z2"')
-#                 observer.schedule(event_handler, "D:\\z2", recursive=True)
-#             if i == 30:
-#                 observer.stop()
-#                 break
+#                 cfpm = CustomFilePathModel(r'D:\\z2')
+#                 myobserver.add_watched_file(cfpm)
 #             time.sleep(1)
 #     except Exception as e:
 #         print(e)
-#         observer.stop()
-#     # observer.join()
+#         myobserver.stop()
