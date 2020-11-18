@@ -1,11 +1,13 @@
 import sys
 import time
 import os
+import logging
 
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler, RegexMatchingEventHandler
 from filemonitor.models import FilePathModel, WebhookUrl
 from filemonitor.make_request import send_request
+from filemonitor.database import session
 
 class EventHandler(FileSystemEventHandler):
 
@@ -39,44 +41,49 @@ class MyObserver():
             MyObserver.__instance = self
             self.observer = Observer()
             self.event_handler = EventHandler(self)
-            self.filepath_models = {}
+            self.filepath_objs = {}
     
-    def init_watched_file(self, db_session):
-        results = db_session.query(FilePathModel).all()
+    def init_watched_file(self):
+        results = session.query(FilePathModel).all()
         for filepath_model in results:
-            self.add_watched_file(filepath_model)
+            self.add_watched_file(filepath_model.serialize())
 
     def add_watched_file(self, filepath_model):
-        p = os.path.abspath(filepath_model.path)
-        self.filepath_models[p] = filepath_model
+        p = os.path.abspath(filepath_model['path'])
+        self.filepath_objs[p] = filepath_model
 
         if os.path.isdir(p):
             self.observer.schedule(self.event_handler, p, recursive=True)
 
-        if os.path.isfile(filepath_model.path):
+        if os.path.isfile(filepath_model['path']):
             p = os.path.dirname(p)
             self.observer.schedule(self.event_handler, p, recursive=True)
 
 
     def notify(self, filesystem_event):
-        print('notify')
-        event_type = filesystem_event.event_type
         src_path = os.path.abspath(filesystem_event.src_path)
+        event_type = filesystem_event.event_type
         dest_path = ''
+
+        if os.path.isdir(src_path):
+            return
+
+        logging.info(f"notify filesystem event: {filesystem_event}")
+
         is_send_request = False
         webhook_urls = []
         if event_type == EventType.moved:
             dest_path = os.path.abspath(filesystem_event.dest_path)
         
-        for filepath, filepath_model in self.filepath_models.items():
+        for filepath, filepath_obj in self.filepath_objs.items():
             if src_path.startswith(filepath):
                 is_send_request = True
-                webhook_urls = filepath_model.get_wehook_urls()
+                webhook_urls = [webhook['url'] for webhook in filepath_obj['webhook']]
                 break
 
-        if not is_send_request and src_path in self.filepath_models:
+        if not is_send_request and src_path in self.filepath_objs:
             is_send_request = True
-            webhook_urls = self.filepath_models[src_path].get_wehook_urls()
+            webhook_urls = [webhook['url'] for webhook in self.filepath_objs[src_path]['webhook']]
         
         if is_send_request:
             for webhook_url in webhook_urls:

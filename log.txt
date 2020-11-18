@@ -1,0 +1,2656 @@
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:werkzeug: * Restarting with windowsapi reloader
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 307-793-212
+INFO:werkzeug: * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\backend_hoangbc\\filemonitor\\config.py', reloading
+INFO:werkzeug: * Detected change in 'D:\\backend_hoangbc\\filemonitor\\config.py', reloading
+INFO:werkzeug: * Restarting with windowsapi reloader
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO:sqlalchemy.engine.base.Engine:()
+INFO:sqlalchemy.engine.base.Engine:SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO:sqlalchemy.engine.base.Engine:()
+WARNING:werkzeug: * Debugger is active!
+INFO:werkzeug: * Debugger PIN: 307-793-212
+INFO:werkzeug: * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO:werkzeug: * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO:werkzeug: * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO:werkzeug: * Restarting with windowsapi reloader
+2020-11-18 21:34:46,550 - INFO - sqlalchemy.engine.base.Engine -SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-11-18 21:34:46,552 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:34:46,553 - INFO - sqlalchemy.engine.base.Engine -SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-11-18 21:34:46,589 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:34:46,592 - INFO - sqlalchemy.engine.base.Engine -SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+2020-11-18 21:34:46,593 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:34:46,672 - INFO - werkzeug - * Restarting with windowsapi reloader
+2020-11-18 21:34:48,384 - INFO - sqlalchemy.engine.base.Engine -SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-11-18 21:34:48,385 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:34:48,386 - INFO - sqlalchemy.engine.base.Engine -SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-11-18 21:34:48,419 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:34:48,422 - INFO - sqlalchemy.engine.base.Engine -SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+2020-11-18 21:34:48,423 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:34:48,450 - WARNING - werkzeug - * Debugger is active!
+2020-11-18 21:34:48,477 - INFO - werkzeug - * Debugger PIN: 307-793-212
+2020-11-18 21:34:48,513 - INFO - werkzeug - * Running on http://localhost:8088/ (Press CTRL+C to quit)
+2020-11-18 21:34:52,222 - INFO - root -register_web_hook active
+2020-11-18 21:34:52,229 - INFO - sqlalchemy.engine.base.Engine -BEGIN (implicit)
+2020-11-18 21:34:52,232 - INFO - sqlalchemy.engine.base.Engine -INSERT INTO webhook (url) VALUES (?)
+2020-11-18 21:34:52,233 - INFO - sqlalchemy.engine.base.Engine -('http://localhost:8080/update_file_info',)
+2020-11-18 21:34:52,279 - INFO - sqlalchemy.engine.base.Engine -INSERT INTO filepath (path) VALUES (?)
+2020-11-18 21:34:52,280 - INFO - sqlalchemy.engine.base.Engine -('D:\\zttt',)
+2020-11-18 21:34:52,282 - INFO - sqlalchemy.engine.base.Engine -INSERT INTO filepath_webhook (filepath_id, webhook_id) VALUES (?, ?)
+2020-11-18 21:34:52,282 - INFO - sqlalchemy.engine.base.Engine -(19, 19)
+2020-11-18 21:34:52,284 - INFO - sqlalchemy.engine.base.Engine -COMMIT
+2020-11-18 21:34:52,328 - INFO - sqlalchemy.engine.base.Engine -BEGIN (implicit)
+2020-11-18 21:34:52,329 - INFO - sqlalchemy.engine.base.Engine -SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath 
+WHERE filepath.id = ?
+2020-11-18 21:34:52,330 - INFO - sqlalchemy.engine.base.Engine -(19,)
+2020-11-18 21:34:52,334 - INFO - sqlalchemy.engine.base.Engine -SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+2020-11-18 21:34:52,370 - INFO - sqlalchemy.engine.base.Engine -(19,)
+2020-11-18 21:34:52,374 - INFO - sqlalchemy.engine.base.Engine -ROLLBACK
+2020-11-18 21:34:52,377 - INFO - werkzeug -127.0.0.1 - - [18/Nov/2020 21:34:52] "[37mGET /register_web_hook?path=D:\zttt&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+2020-11-18 21:35:41,133 - INFO - root -register_web_hook active
+2020-11-18 21:35:41,135 - INFO - sqlalchemy.engine.base.Engine -BEGIN (implicit)
+2020-11-18 21:35:41,136 - INFO - sqlalchemy.engine.base.Engine -INSERT INTO filepath (path) VALUES (?)
+2020-11-18 21:35:41,138 - INFO - sqlalchemy.engine.base.Engine -('D:\\zttt',)
+2020-11-18 21:35:41,186 - INFO - sqlalchemy.engine.base.Engine -INSERT INTO webhook (url) VALUES (?)
+2020-11-18 21:35:41,223 - INFO - sqlalchemy.engine.base.Engine -('http://localhost:8080/update_file_info',)
+2020-11-18 21:35:41,225 - INFO - sqlalchemy.engine.base.Engine -INSERT INTO filepath_webhook (filepath_id, webhook_id) VALUES (?, ?)
+2020-11-18 21:35:41,226 - INFO - sqlalchemy.engine.base.Engine -(20, 20)
+2020-11-18 21:35:41,228 - INFO - sqlalchemy.engine.base.Engine -COMMIT
+2020-11-18 21:35:41,239 - INFO - sqlalchemy.engine.base.Engine -BEGIN (implicit)
+2020-11-18 21:35:41,276 - INFO - sqlalchemy.engine.base.Engine -SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath 
+WHERE filepath.id = ?
+2020-11-18 21:35:41,278 - INFO - sqlalchemy.engine.base.Engine -(20,)
+2020-11-18 21:35:41,281 - INFO - sqlalchemy.engine.base.Engine -SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+2020-11-18 21:35:41,283 - INFO - sqlalchemy.engine.base.Engine -(20,)
+2020-11-18 21:35:41,285 - INFO - sqlalchemy.engine.base.Engine -ROLLBACK
+2020-11-18 21:35:41,286 - INFO - werkzeug -127.0.0.1 - - [18/Nov/2020 21:35:41] "[37mGET /register_web_hook?path=D:\zttt&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+2020-11-18 21:36:02,680 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:02,681 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:02,681 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:02,682 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:02,849 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:02,850 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:02,851 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:02,851 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+2020-11-18 21:36:03,940 - INFO - werkzeug - * Restarting with windowsapi reloader
+2020-11-18 21:36:05,704 - INFO - sqlalchemy.engine.base.Engine -SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+2020-11-18 21:36:05,713 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:36:05,769 - INFO - sqlalchemy.engine.base.Engine -SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+2020-11-18 21:36:05,779 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:36:05,783 - INFO - sqlalchemy.engine.base.Engine -SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+2020-11-18 21:36:05,784 - INFO - sqlalchemy.engine.base.Engine -()
+2020-11-18 21:36:05,891 - WARNING - werkzeug - * Debugger is active!
+2020-11-18 21:36:05,919 - INFO - werkzeug - * Debugger PIN: 307-793-212
+2020-11-18 21:36:05,960 - INFO - werkzeug - * Running on http://localhost:8088/ (Press CTRL+C to quit)
+2020-11-18 21:37:18,131 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\config.py', reloading
+2020-11-18 21:37:18,140 - INFO - werkzeug - * Detected change in 'D:\\backend_hoangbc\\filemonitor\\config.py', reloading
+2020-11-18 21:37:19,231 - INFO - werkzeug - * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+2020-11-18 21:38:07,422 - INFO - werkzeug - * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+2020-11-18 21:38:18,825 - INFO - werkzeug - * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+2020-11-18 21:39:17,922 - INFO - werkzeug - * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\tracking.cpython-38.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\tracking.cpython-38.pyc', reloading
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO root register_web_hook active
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO webhook (url) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('http://localhost:8080/update_file_info',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath (path) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('D:\\a',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath_webhook (filepath_id, webhook_id) VALUES (?, ?)
+INFO sqlalchemy.engine.base.Engine (21, 21)
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath 
+WHERE filepath.id = ?
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:01:57] "[37mGET /register_web_hook?path=D:\a&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\routes.cpython-38.pyc', reloading
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:04:13] "[37mGET /register_web_hook?path=D:\aabc&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+ERROR root register_web_hook path D:\aabc not exists
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:04:47] "[37mGET /register_web_hook?path=D:\aabc&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath (path) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('D:\\a',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO webhook (url) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('http://localhost:8080/update_file_info',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath_webhook (filepath_id, webhook_id) VALUES (?, ?)
+INFO sqlalchemy.engine.base.Engine (22, 22)
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath 
+WHERE filepath.id = ?
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:05:16] "[37mGET /register_web_hook?path=D:\a&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileModifiedEvent: src_path='D:\\a\\aaaaa.txt'>
+INFO root update_file_info
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO fileinfo (path, size, hash_file, date_created, date_modified) VALUES (?, ?, ?, ?, ?)
+INFO sqlalchemy.engine.base.Engine ('D:\\a\\aaaaa.txt', 4.0, -3005459996410741779, '2020-11-18 22:02:24.290429', '2020-11-18 22:05:21.767904')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_modified AS fileinfo_date_modified 
+FROM fileinfo 
+WHERE fileinfo.id = ?
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO root --->update_file_info: id: 4
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:05:23] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+ERROR root register_web_hook err:(sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 19592 and this is thread id 20596.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+ERROR sqlalchemy.pool.impl.NullPool Exception during reset or similar
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 19592 and this is thread id 20596.
+ERROR sqlalchemy.pool.impl.NullPool Exception closing connection <sqlite3.Connection object at 0x00000265B04F7A80>
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 893, in _reset
+    pool._dialect.do_rollback(self)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 19592 and this is thread id 20596.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 549, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 19592 and this is thread id 20596.
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:07:28] "[37mGET /register_web_hook?path=D:\a&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\tracking.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\__init__.cpython-38.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\__pycache__\\__init__.cpython-38.pyc', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+ERROR root register_web_hook path D:\ab not exists
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+ERROR sqlalchemy.pool.impl.NullPool Exception during reset or similar
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 12024 and this is thread id 10868.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1754, in rollback
+    self._do_rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1792, in _do_rollback
+    self.connection._rollback_impl()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 754, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
+    raise exception
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 12024 and this is thread id 10868.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+ERROR sqlalchemy.pool.impl.NullPool Exception closing connection <sqlite3.Connection object at 0x00000241AD1D6A80>
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 12024 and this is thread id 10868.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1754, in rollback
+    self._do_rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1792, in _do_rollback
+    self.connection._rollback_impl()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 754, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
+    raise exception
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 12024 and this is thread id 10868.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 549, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 12024 and this is thread id 10868.
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:09:13] "[37mGET /register_web_hook?path=D:\ab&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath (path) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('D:\\cd',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO webhook (url) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('http://localhost:8080/update_file_info',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath_webhook (filepath_id, webhook_id) VALUES (?, ?)
+INFO sqlalchemy.engine.base.Engine (23, 23)
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath 
+WHERE filepath.id = ?
+INFO sqlalchemy.engine.base.Engine (23,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:09:26] "[37mGET /register_web_hook?path=D:\cd&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <DirMovedEvent: src_path='D:\\cd\\New folder', dest_path='D:\\cd\\abc'>
+INFO root update_file_info
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO fileinfo (path, size, hash_file, date_created, date_modified) VALUES (?, ?, ?, ?, ?)
+INFO sqlalchemy.engine.base.Engine ('D:\\cd\\New folder', 0.0, 7256810064689023648, '2020-11-18 22:09:33.572388', '2020-11-18 22:09:33.572388')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_modified AS fileinfo_date_modified 
+FROM fileinfo 
+WHERE fileinfo.id = ?
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO root --->update_file_info: id: 5
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:09:38] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileCreatedEvent: src_path='D:\\cd\\New Text Document.txt'>
+INFO root update_file_info
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO fileinfo (path, size, hash_file, date_created, date_modified) VALUES (?, ?, ?, ?, ?)
+INFO sqlalchemy.engine.base.Engine ('D:\\cd\\New Text Document.txt', 0.0, -3938478210988276481, '2020-11-18 22:09:49.406754', '2020-11-18 22:09:49.406754')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_modified AS fileinfo_date_modified 
+FROM fileinfo 
+WHERE fileinfo.id = ?
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO root --->update_file_info: id: 6
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:09:51] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileMovedEvent: src_path='D:\\cd\\New Text Document.txt', dest_path='D:\\cd\\xxxx.txt'>
+INFO root update_file_info
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO fileinfo (path, size, hash_file, date_created, date_modified) VALUES (?, ?, ?, ?, ?)
+INFO sqlalchemy.engine.base.Engine ('D:\\cd\\New Text Document.txt', 0.0, -3732299964036170607, '2020-11-18 22:09:49.406754', '2020-11-18 22:09:49.406754')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_modified AS fileinfo_date_modified 
+FROM fileinfo 
+WHERE fileinfo.id = ?
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO root --->update_file_info: id: 7
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:09:53] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\__pycache__\\routes.cpython-38.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\__pycache__\\routes.cpython-38.pyc', reloading
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine (23,)
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_modified AS fileinfo_date_modified 
+FROM fileinfo
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:12:03] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+ERROR root get_file_paths err:(sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 8048 and this is thread id 21412.
+[SQL: SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath]
+[parameters: [immutabledict({})]]
+(Background on this error at: http://sqlalche.me/e/13/f405)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+ERROR sqlalchemy.pool.impl.NullPool Exception during reset or similar
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 8048 and this is thread id 21412.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1754, in rollback
+    self._do_rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1792, in _do_rollback
+    self.connection._rollback_impl()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 754, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
+    raise exception
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 8048 and this is thread id 21412.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+ERROR sqlalchemy.pool.impl.NullPool Exception closing connection <sqlite3.Connection object at 0x0000021D45C40300>
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 8048 and this is thread id 21412.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1754, in rollback
+    self._do_rollback()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1792, in _do_rollback
+    self.connection._rollback_impl()
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 754, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    util.raise_(
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\util\compat.py", line 178, in raise_
+    raise exception
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\base.py", line 752, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 8048 and this is thread id 21412.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\pool\base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "C:\Users\hoang\anaconda3\lib\site-packages\sqlalchemy\engine\default.py", line 549, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 8048 and this is thread id 21412.
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:15:05] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [18/Nov/2020 22:15:49] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (4,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (5,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (6,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (7,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (8,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (9,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (10,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (11,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (12,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (13,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (14,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (15,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (16,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (17,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (18,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (19,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (20,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (21,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (22,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (23,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO root notify filesystem event: <FileModifiedEvent: src_path='D:\\zttt\\i.txt'>
+INFO werkzeug  * Detected change in 'D:\\backend_hoangbc\\filemanagement\\constant.py', reloading
+INFO root notify filesystem event: <FileModifiedEvent: src_path='D:\\zttt\\i.txt'>
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 307-793-212
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'd:\\backend_hoangbc\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
