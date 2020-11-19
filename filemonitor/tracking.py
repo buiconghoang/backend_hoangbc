@@ -7,7 +7,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler, RegexMatchingEventHandler
 from filemonitor.models import FilePathModel, WebhookUrl
 from filemonitor.make_request import send_request
-from filemonitor.database import session
+from filemonitor.database import Session
 from filemonitor.constant import EventType
 
 class EventHandler(FileSystemEventHandler):
@@ -39,9 +39,16 @@ class MyObserver():
             self.filepath_objs = {}
     
     def init_watched_file(self):
-        results = session.query(FilePathModel).all()
-        for filepath_model in results:
-            self.add_watched_file(filepath_model.serialize())
+        try:
+            db_ses = Session()
+            results = db_ses.query(FilePathModel).all()
+            for filepath_model in results:
+                self.add_watched_file(filepath_model.serialize())
+        except Exception as err:
+            print("init_watched_file err: " + str(err))
+            logging.ERROR("init_watched_file err: " + str(err))
+        finally:
+            db_ses.close()
 
     def add_watched_file(self, filepath_model):
         p = os.path.abspath(filepath_model['path'])
@@ -50,7 +57,7 @@ class MyObserver():
         if os.path.isdir(p):
             self.observer.schedule(self.event_handler, p, recursive=True)
 
-        if os.path.isfile(filepath_model['path']):
+        if os.path.isfile(p):
             p = os.path.dirname(p)
             self.observer.schedule(self.event_handler, p, recursive=True)
 

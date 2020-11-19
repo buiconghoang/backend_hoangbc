@@ -5,3 +5,5 @@ testDB.py
 filemonitor.db
 testTracking.py
 log.txt
+log_filemanagement.txt
+log_filemonitor.txt

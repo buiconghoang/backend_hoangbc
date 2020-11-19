@@ -17,8 +17,8 @@ def register_web_hook():
             return {'status': 'failed'}
 
         web_hook_url = args['web_hook_url']
-        whu = WebhookUrl(web_hook_url)
-        fp = FilePathModel(p)
+        whu = get_webhook(web_hook_url)
+        fp = get_filepath(p)
         fp.add_webhook(whu)
         session.add_all([fp])
         session.commit()
@@ -44,3 +44,15 @@ def get_file_paths():
         return {'status': 'failed'}
     finally:
         session.close()
+    
+def get_filepath(p):
+    fp = session.query(FilePathModel).filter(FilePathModel.path == p).first()
+    if fp:
+        return fp
+    return FilePathModel(p)
+
+def get_webhook(url):
+    webhook = session.query(WebhookUrl).filter(WebhookUrl.url == url).first()
+    if webhook:
+        return webhook
+    return WebhookUrl(url)

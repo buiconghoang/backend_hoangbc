@@ -2,7 +2,7 @@ class config:
     host = 'localhost'
     port = 8080
     debug = True
-    log_path = "log.txt"
+    log_path = "log_filemanagement.txt"
     log_format = "%(levelname)s %(name)s %(message)s"
 
 class configdb:
