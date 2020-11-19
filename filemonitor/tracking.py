@@ -8,6 +8,7 @@ from watchdog.events import FileSystemEventHandler, RegexMatchingEventHandler
 from filemonitor.models import FilePathModel, WebhookUrl
 from filemonitor.make_request import send_request
 from filemonitor.database import session
+from filemonitor.constant import EventType
 
 class EventHandler(FileSystemEventHandler):
 
@@ -17,12 +18,6 @@ class EventHandler(FileSystemEventHandler):
 
     def on_any_event(self, event):
         self.my_observer.notify(event)
-
-class EventType:
-    created = 'created'
-    modified = 'modified'
-    deleted = 'deleted'
-    moved = 'moved'
 
 class MyObserver():
 

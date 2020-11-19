@@ -51,33 +51,33 @@ def update_file_info():
     try:
         logging.info("update_file_info")
         data = json.loads(request.data)
-        data['date_created'] = datetime.fromtimestamp(
-            float(data['date_created']))
-        data['date_updated'] = datetime.fromtimestamp(
-            float(data['date_updated']))
-        event_type = data['eventtype']
-        destpath = data['dest_path']
-        src_path = data['path']
+        event_type = data.get('eventtype', 'created')
+        destpath = data.get('dest_path', '')
+        src_path = data.get('path', '')
+        size = data.get('size', 0)
+        date_created = datetime.fromtimestamp(float(data.get('date_updated', 0)))
+        date_updated = datetime.fromtimestamp(float(data.get('date_updated', 0)))
+
 
         logging.info(f'--->update_file_info event type : {event_type}')
-        fileinfo_model = FileInfoModel(src_path, data['size'], data['hash'],data['date_created'], data['date_updated'])
+        fileinfo_model = FileInfoModel(src_path, data['size'], data['hash'], date_created, date_updated)
 
         if event_type == EventType.CREATED:
             logging.info(f'--->update_file_info: id: {fileinfo_model.id}')
             session.add(fileinfo_model)
-        elif event_type == EventType.MODIFIED or event == EventType.MOVED:
+        elif event_type == EventType.MODIFIED or event_type == EventType.MOVED:
             if destpath:
                 fileinfo_model.path = dest_path
 
             session.query(FileInfoModel).filter(FileInfoModel.path == src_path).\
                 update(fileinfo_model.make_update_obj(), synchronize_session=False)
-        elif event == EventType.DELETED::
+        elif event_type == EventType.DELETED:
             session.query(FileInfoModel).filter(FileInfoModel.path == src_path).\
                 delete(synchronize_session=False)
-
         session.commit()
         return f'id: {fileinfo_model.id}'
     except Exception as err:
+        print(str(err))
         logging.error('update_file_info err: ' + str(err))
         return {'status': 'failed'}
     finally:

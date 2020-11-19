@@ -22,7 +22,7 @@ def create_body(src_path, event_type, dest_path=''):
 
 def send_request(url, src_path, event_name, dest_path=''):
     data = create_body(src_path, event_name, dest_path)
-    print("data: ",data)
+    print("data: ", data)
     requests.post(url, json.dumps(data))
 
     
