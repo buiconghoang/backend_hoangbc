@@ -4170,3 +4170,84 @@ FROM fileinfo
 INFO sqlalchemy.engine.base.Engine ()
 INFO sqlalchemy.engine.base.Engine ROLLBACK
 INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:14:09] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__pycache__\\routes.cpython-36.pyc', reloading
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\config.py', reloading
