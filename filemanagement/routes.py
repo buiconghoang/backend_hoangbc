@@ -52,7 +52,7 @@ def update_file_info():
         logging.info("update_file_info")
         data = json.loads(request.data)
         event_type = data.get('eventtype', 'created')
-        destpath = data.get('dest_path', '')
+        dest_path = data.get('dest_path', '')
         src_path = data.get('path', '')
         size = data.get('size', 0)
         date_created = datetime.fromtimestamp(float(data.get('date_updated', 0)))
@@ -66,7 +66,7 @@ def update_file_info():
             logging.info(f'--->update_file_info: id: {fileinfo_model.id}')
             session.add(fileinfo_model)
         elif event_type == EventType.MODIFIED or event_type == EventType.MOVED:
-            if destpath:
+            if dest_path:
                 fileinfo_model.path = dest_path
 
             session.query(FileInfoModel).filter(FileInfoModel.path == src_path).\

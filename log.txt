@@ -3303,3 +3303,870 @@ INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement_serv
 INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement_service\\filemanagement\\__pycache__\\__init__.cpython-36.pyc', reloading
 INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement_service\\filemanagement\\__pycache__\\__init__.cpython-38.pyc', reloading
 INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("filepath_webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("filepath_webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("filepath")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("filepath")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE filepath (
+	id INTEGER NOT NULL, 
+	path VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine CREATE INDEX ix_filepath_path ON filepath (path)
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE webhook (
+	id INTEGER NOT NULL, 
+	url VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine CREATE INDEX ix_webhook_url ON webhook (url)
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE filepath_webhook (
+	filepath_id INTEGER NOT NULL, 
+	webhook_id INTEGER NOT NULL, 
+	PRIMARY KEY (filepath_id, webhook_id), 
+	FOREIGN KEY(filepath_id) REFERENCES filepath (id), 
+	FOREIGN KEY(webhook_id) REFERENCES webhook (id)
+)
+
+
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+ERROR root get_file_paths err:(sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 11648 and this is thread id 13796.
+[SQL: SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath]
+[parameters: [immutabledict({})]]
+(Background on this error at: http://sqlalche.me/e/13/f405)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\venv\\Lib\\site-packages\\sqlalchemy\\engine\\base.py', reloading
+ERROR sqlalchemy.pool.impl.NullPool Exception during reset or similar
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 11648 and this is thread id 13796.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 11648 and this is thread id 13796.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\venv\\Lib\\site-packages\\sqlalchemy\\engine\\default.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\venv\\Lib\\site-packages\\sqlalchemy\\engine\\base.py', reloading
+ERROR sqlalchemy.pool.impl.NullPool Exception closing connection <sqlite3.Connection object at 0x000002869A4E8030>
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 11648 and this is thread id 13796.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 11648 and this is thread id 13796.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 549, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 11648 and this is thread id 13796.
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\venv\\Lib\\site-packages\\sqlalchemy\\engine\\default.py', reloading
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:08:17] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+ERROR root get_file_paths err:(sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 9448 and this is thread id 2204.
+[SQL: SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath]
+[parameters: [immutabledict({})]]
+(Background on this error at: http://sqlalche.me/e/13/f405)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+ERROR sqlalchemy.pool.impl.NullPool Exception during reset or similar
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 9448 and this is thread id 2204.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 9448 and this is thread id 2204.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+ERROR sqlalchemy.pool.impl.NullPool Exception closing connection <sqlite3.Connection object at 0x000001EAF9778030>
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 9448 and this is thread id 2204.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 9448 and this is thread id 2204.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 549, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 9448 and this is thread id 2204.
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:08:45] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemonitor\\__init__.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+ERROR root get_file_paths err:(sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 1856 and this is thread id 12692.
+[SQL: SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath]
+[parameters: [immutabledict({})]]
+(Background on this error at: http://sqlalche.me/e/13/f405)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+ERROR sqlalchemy.pool.impl.NullPool Exception during reset or similar
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 1856 and this is thread id 12692.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 1856 and this is thread id 12692.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+ERROR sqlalchemy.pool.impl.NullPool Exception closing connection <sqlite3.Connection object at 0x000002BEFB19DF10>
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 1856 and this is thread id 12692.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 1856 and this is thread id 12692.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 549, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 1856 and this is thread id 12692.
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:09:43] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("filepath_webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("filepath_webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("filepath")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("filepath")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA main.table_info("webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine PRAGMA temp.table_info("webhook")
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE filepath (
+	id INTEGER NOT NULL, 
+	path VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine CREATE INDEX ix_filepath_path ON filepath (path)
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE webhook (
+	id INTEGER NOT NULL, 
+	url VARCHAR, 
+	PRIMARY KEY (id)
+)
+
+
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine CREATE INDEX ix_webhook_url ON webhook (url)
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine 
+CREATE TABLE filepath_webhook (
+	filepath_id INTEGER NOT NULL, 
+	webhook_id INTEGER NOT NULL, 
+	PRIMARY KEY (filepath_id, webhook_id), 
+	FOREIGN KEY(filepath_id) REFERENCES filepath (id), 
+	FOREIGN KEY(webhook_id) REFERENCES webhook (id)
+)
+
+
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+ERROR root get_file_paths err:(sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13372 and this is thread id 12368.
+[SQL: SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath]
+[parameters: [immutabledict({})]]
+(Background on this error at: http://sqlalche.me/e/13/f405)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+ERROR sqlalchemy.pool.impl.NullPool Exception during reset or similar
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13372 and this is thread id 12368.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13372 and this is thread id 12368.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+ERROR sqlalchemy.pool.impl.NullPool Exception closing connection <sqlite3.Connection object at 0x000001EAEE3CCF10>
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13372 and this is thread id 12368.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 697, in _finalize_fairy
+    fairy._reset(pool)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 891, in _reset
+    self._reset_agent.rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1751, in rollback
+    self._do_rollback()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1789, in _do_rollback
+    self.connection._rollback_impl()
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 751, in _rollback_impl
+    self._handle_dbapi_exception(e, None, None, None, None)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 1511, in _handle_dbapi_exception
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\util\compat.py", line 182, in raise_
+    raise exception
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\base.py", line 749, in _rollback_impl
+    self.engine.dialect.do_rollback(self.connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 543, in do_rollback
+    dbapi_connection.rollback()
+sqlalchemy.exc.ProgrammingError: (sqlite3.ProgrammingError) SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13372 and this is thread id 12368.
+(Background on this error at: http://sqlalche.me/e/13/f405)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\pool\base.py", line 270, in _close_connection
+    self._dialect.do_close(connection)
+  File "D:\hoangbc\backend02\venv\lib\site-packages\sqlalchemy\engine\default.py", line 549, in do_close
+    dbapi_connection.close()
+sqlite3.ProgrammingError: SQLite objects created in a thread can only be used in that same thread. The object was created in thread id 13372 and this is thread id 12368.
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:10:01] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:10:51] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:10:54] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO webhook (url) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('http://localhost:8080/update_file_info',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath (path) VALUES (?)
+INFO sqlalchemy.engine.base.Engine ('D:\\z2',)
+INFO sqlalchemy.engine.base.Engine INSERT INTO filepath_webhook (filepath_id, webhook_id) VALUES (?, ?)
+INFO sqlalchemy.engine.base.Engine (1, 1)
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath 
+WHERE filepath.id = ?
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:11:05] "[37mGET /register_web_hook?path=D:\z2&web_hook_url=http://localhost:8080/update_file_info HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:11:08] "[37mGET /get_file_paths HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:11:21] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <DirMovedEvent: src_path='D:\\z2\\New folder (3)', dest_path='D:\\z2\\newzzzfolr'>
+INFO werkzeug  * Detected change in 'C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python36\\Lib\\__pycache__\\netrc.cpython-36.pyc', reloading
+INFO werkzeug  * Detected change in 'C:\\Users\\ADMIN\\AppData\\Local\\Programs\\Python\\Python36\\Lib\\__pycache__\\netrc.cpython-36.pyc', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:12:00] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileCreatedEvent: src_path='D:\\z2\\New Text Document.txt'>
+INFO root update_file_info
+INFO root --->update_file_info event type : created
+INFO root --->update_file_info: id: None
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO fileinfo (path, size, hash_file, date_created, date_updated) VALUES (?, ?, ?, ?, ?)
+INFO sqlalchemy.engine.base.Engine ('D:\\z2\\New Text Document.txt', 0.0, 5894258315868134540, '2020-11-19 09:12:04.359871', '2020-11-19 09:12:04.359871')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo 
+WHERE fileinfo.id = ?
+INFO sqlalchemy.engine.base.Engine (2,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:12:06] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileMovedEvent: src_path='D:\\z2\\New Text Document.txt', dest_path='D:\\z2\\hello.txt'>
+INFO root update_file_info
+INFO root --->update_file_info event type : moved
+ERROR root update_file_info err: name 'dest_path' is not defined
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:12:08] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\routes.py', reloading
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\__pycache__\\routes.cpython-36.pyc', reloading
+INFO werkzeug  * Detected change in 'D:\\hoangbc\\backend02\\filemanagement\\__pycache__\\routes.cpython-36.pyc', reloading
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8080/ (Press CTRL+C to quit)
+INFO werkzeug  * Restarting with windowsapi reloader
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test plain returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT CAST('test unicode returns' AS VARCHAR(60)) AS anon_1
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT name FROM sqlite_master WHERE type='table' ORDER BY name
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT filepath.id AS filepath_id, filepath.path AS filepath_path 
+FROM filepath
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine SELECT webhook.id AS webhook_id, webhook.url AS webhook_url 
+FROM webhook, filepath_webhook 
+WHERE ? = filepath_webhook.filepath_id AND webhook.id = filepath_webhook.webhook_id
+INFO sqlalchemy.engine.base.Engine (1,)
+WARNING werkzeug  * Debugger is active!
+INFO werkzeug  * Debugger PIN: 814-539-840
+INFO werkzeug  * Running on http://localhost:8088/ (Press CTRL+C to quit)
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:12:44] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileModifiedEvent: src_path='D:\\z2\\hello.txt'>
+INFO root update_file_info
+INFO root --->update_file_info event type : modified
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine UPDATE fileinfo SET path=?, size=?, date_created=?, date_updated=? WHERE fileinfo.path = ?
+INFO sqlalchemy.engine.base.Engine ('D:\\z2\\hello.txt', 3.0, '2020-11-19 09:12:51.798559', '2020-11-19 09:12:51.798559', 'D:\\z2\\hello.txt')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:12:53] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:12:55] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileCreatedEvent: src_path='D:\\z2\\New Text Document.txt'>
+INFO root update_file_info
+INFO root --->update_file_info event type : created
+INFO root --->update_file_info: id: None
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine INSERT INTO fileinfo (path, size, hash_file, date_created, date_updated) VALUES (?, ?, ?, ?, ?)
+INFO sqlalchemy.engine.base.Engine ('D:\\z2\\New Text Document.txt', 0.0, -8533606723892787207, '2020-11-19 09:13:30.916109', '2020-11-19 09:13:30.916109')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo 
+WHERE fileinfo.id = ?
+INFO sqlalchemy.engine.base.Engine (3,)
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:13:33] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileMovedEvent: src_path='D:\\z2\\New Text Document.txt', dest_path='D:\\z2\\2222.txt'>
+INFO root update_file_info
+INFO root --->update_file_info event type : moved
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine UPDATE fileinfo SET path=?, size=?, date_created=?, date_updated=? WHERE fileinfo.path = ?
+INFO sqlalchemy.engine.base.Engine ('D:\\z2\\2222.txt', 0.0, '2020-11-19 09:13:30.916109', '2020-11-19 09:13:30.916109', 'D:\\z2\\New Text Document.txt')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:13:35] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:13:37] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
+INFO root notify filesystem event: <FileModifiedEvent: src_path='D:\\z2\\2222.txt'>
+INFO root update_file_info
+INFO root --->update_file_info event type : modified
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine UPDATE fileinfo SET path=?, size=?, date_created=?, date_updated=? WHERE fileinfo.path = ?
+INFO sqlalchemy.engine.base.Engine ('D:\\z2\\2222.txt', 4.0, '2020-11-19 09:14:06.071750', '2020-11-19 09:14:06.071750', 'D:\\z2\\2222.txt')
+INFO sqlalchemy.engine.base.Engine COMMIT
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:14:08] "[37mPOST /update_file_info HTTP/1.1[0m" 200 -
+INFO sqlalchemy.engine.base.Engine BEGIN (implicit)
+INFO sqlalchemy.engine.base.Engine SELECT fileinfo.id AS fileinfo_id, fileinfo.path AS fileinfo_path, fileinfo.size AS fileinfo_size, fileinfo.hash_file AS fileinfo_hash_file, fileinfo.date_created AS fileinfo_date_created, fileinfo.date_updated AS fileinfo_date_updated 
+FROM fileinfo
+INFO sqlalchemy.engine.base.Engine ()
+INFO sqlalchemy.engine.base.Engine ROLLBACK
+INFO werkzeug 127.0.0.1 - - [19/Nov/2020 09:14:09] "[37mGET /get_file_infos HTTP/1.1[0m" 200 -
