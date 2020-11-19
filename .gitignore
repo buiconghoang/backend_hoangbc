@@ -1,6 +1,7 @@
 .vscode
-__pycache__
-**/__pycache__
+__pycache__/**
+**/__pycache__/**
 testDB.py
 filemonitor.db
 testTracking.py
+log.txt
